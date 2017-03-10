@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.doorlock.dao.IDemo">    
+    <insert id="insertDemo" parameterType="com.doorlock.entity.DemoDAO">
+        insert into tbl_demo(a, b, c) values(#{a}, #{b}, #{c});
+    </insert>
+
+    <resultMap id="demoResult" type="com.doorlock.dto.DemoResult">
+        <id property="sum" column="sumColum"/>
+    </resultMap>
+
+    <select id="selectGroup" resultMap="demoResult">
+        select sum(a) as sumColum from tbl_demo group by c;
+    </select>
+</mapper>
