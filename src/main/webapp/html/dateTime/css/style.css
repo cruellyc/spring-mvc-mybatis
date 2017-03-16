@@ -1,0 +1,113 @@
+/*--头部--*/
+.header {
+	position: fixed;
+	width: 100%;
+	background: #ff0000;
+	top: 0;
+	left: 0;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #fff;
+}
+.header_text {
+	font-size: 20px;
+	font-weight: bold;
+}
+.header_left {
+	position: absolute;
+	top: 10px;
+	left: 7px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+.header_right {
+	font-size: 16px;
+	font-weight: bold;
+	position: absolute;
+	top: 10px;
+	right: 7px;
+	text-align: center;
+	line-height: 30px;
+}
+
+/*--内容--*/
+.main {
+	margin-top: 60px;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+.main_row {
+	border-bottom: 1px solid #ccc;
+	height: 30px;
+	line-height: 30px;
+}
+.main_row1 {
+	border-bottom: 1px solid #ccc;
+	height: 30px;
+	line-height: 30px;
+}
+.main_dateheader{
+	width: 100%;
+	background: #ff8080;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+}
+.dateheader_left {
+	position: absolute;
+	top: 65px;
+	left: 15px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+.dateheader_right {
+	position: absolute;
+	top: 65px;
+	right: 15px;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 30px;
+}
+.main_week{
+	width: 14.28%;
+	float: left;
+	text-align: center;
+	background-color: #fff7ee;
+}
+.main_day{
+	width: 14.28%;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+}
+.day{
+	width:80%;
+	height:25px;
+	margin:2.5px 10%;
+	line-height: 25px;
+	border-radius: 10px;
+}
+.day_today{
+	background-color: #c0c0c0;
+	color: #fff;
+}
+.day_select{
+	background-color: #ff4646;
+	color: #fff;
+}
+.day_option{
+	background-color: #ffbfbf;
+	color: #fff;
+}
+.day_nooption{
+	background-color: #f3f3f3;
+}
