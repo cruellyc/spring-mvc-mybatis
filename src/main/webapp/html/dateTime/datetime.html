@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport"
+	content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+<link rel="stylesheet" href="css/style.css">
+<title>选择时间</title>
+</head>
+
+<body>
+	<div class="header">
+		<div class="header_left">＜ 返回</div>
+		<div class="header_text">选择日期</div>
+		<div class="header_right">完成</div>
+	</div>
+	<div class="main">
+		<div class="main_row2">
+			<div class="main_week">日</div>
+			<div class="main_week">一</div>
+			<div class="main_week">二</div>
+			<div class="main_week">三</div>
+			<div class="main_week">四</div>
+			<div class="main_week">五</div>
+			<div class="main_week">六</div>
+		</div>
+		<!-- <div class="dateShow">
+			<div class="main_dateheader">
+				<div class="dateheader_left">2017年3月</div>
+			</div>
+			<div class="main_row1">
+			<div class="main_day"><div class="day"></div></div>
+			<div class="main_day"><div class="day day_select">2</div></div>
+			<div class="main_day"><div class="day day_select">3</div></div>
+			<div class="main_day"><div class="day day_select">4</div></div>
+			<div class="main_day"><div class="day day_select">5</div></div>
+			<div class="main_day"><div class="day day_option">6</div></div>
+			<div class="main_day"><div class="day day_option">7</div></div>
+		</div>
+		<div class="main_row1">
+			<div class="main_day"><div class="day day_option">8</div></div>
+			<div class="main_day"><div class="day day_select">9</div></div>
+			<div class="main_day"><div class="day day_select">10</div></div>
+			<div class="main_day"><div class="day day_select">11</div></div>
+			<div class="main_day"><div class="day day_select">12</div></div>
+			<div class="main_day"><div class="day day_select">13</div></div>
+			<div class="main_day"><div class="day day_select">14</div></div>
+		</div>
+		<div class="main_row1">
+			<div class="main_day"><div class="day day_select">15</div></div>
+			<div class="main_day"><div class="day day_select">16</div></div>
+			<div class="main_day"><div class="day day_option">17</div></div>
+			<div class="main_day"><div class="day day_select">18</div></div>
+			<div class="main_day"><div class="day day_nooption">19</div></div>
+			<div class="main_day"><div class="day day_nooption">20</div></div>
+			<div class="main_day"><div class="day day_nooption">21</div></div>
+		</div> 
+		</div>-->
+	</div>
+	<div class="footer"></div>
+	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.timers-1.2.js"></script>
+	<script type="text/javascript" src="js/datetime.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			var nowYear=new Date().getFullYear();
+			var nowMonth=new Date().getMonth()+1;
+			DATE.setDateTime($('.main'),nowYear,nowMonth);
+			if(nowMonth==12){
+				nowMonth=1;
+				nowYear+=1;
+			}else{
+				nowMonth+=1;
+			}
+			DATE.setDateTime($('.main'),nowYear,nowMonth);
+		});
+	</script>
+</body>
+</html>

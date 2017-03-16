@@ -112,6 +112,8 @@ DATE.setCalendar=function(year,month,num){
 					}else{
 						s+='<div class="main_day"><div class="day day_nooption">'+i+'</div></div>';
 					}
+				}else{
+					s+='<div class="main_day"><div class="day day_nooption">'+i+'</div></div>';
 				}
 			}
 		}else{
@@ -140,6 +142,81 @@ DATE.setCalendar=function(year,month,num){
 			$(this).attr('d','0');
 		}else if($(this).attr('d')=='3'){
 			$(this).removeClass('day_select');
+			$(this).addClass('day_option');
+			$(this).attr('d','1');
+		}
+	});
+};
+DATE.setDateTime=function(e,year,month,num){
+
+	var str=year+"/"+month+"/1";
+	var oneday=new Date(str);
+	var dayNum=0;
+	var nowYear=new Date().getFullYear();
+	var nowMonth=new Date().getMonth();
+	var nowDate=new Date().getDate();
+	if(month==1|month==3|month==5|month==7|month==8|month==10|month==12){
+		dayNum=31;
+	}else if(month==4|month==6|month==9|month==11){
+		dayNum=30;
+	}else{
+		if(((year % 100 == 0) && (year % 400 == 0)) || ((year % 100 != 0) && (year % 4 == 0))){
+			dayNum=29;
+		}else{
+			dayNum=28;
+		}
+	}
+	var s='<div class="dateShow">'+
+		'<div class="main_dateheader1">'+
+		'	<div class="dateShow_left">'+year+'年'+month+'月</div>'+
+		'</div>';
+	for(var i=1;i<=dayNum;i++){
+		if(i==1){
+			s+='<div class="main_row3">';
+			for(var n=0;n<oneday.getDay();n++){
+				s+='<div class="main_day"><div class="day"></div></div>';
+			}
+		}
+		if(nowYear==year && (nowMonth+1)==month){
+			if(i==nowDate){
+				s+='<div class="main_day"><div class="day day_choice day_today" d="0">'+i+'</div></div>';
+			}else{
+				if(num){
+					if(i>nowDate && i<(nowDate+num)){
+						s+='<div class="main_day"><div class="day day_choice day_option" d="1">'+i+'</div></div>';
+					}else{
+						s+='<div class="main_day"><div class="day day_nooption">'+i+'</div></div>';
+					}
+				}else{
+					s+='<div class="main_day"><div class="day day_nooption">'+i+'</div></div>';
+				}
+			}
+		}else{
+			s+='<div class="main_day"><div class="day day_nooption">'+i+'</div></div>';
+		}
+		if(((oneday.getDay()+i)%7)==0){
+			s+='</div>';
+			if(i<dayNum){
+				s+='<div class="main_row3">';
+			}
+		}
+	}
+	s+='</div>';
+	$(e).append(s);
+	$('.day_choice').click(function(){
+		$('.day_choice').removeClass('day_select');
+		if($(this).attr('d')=='0'){
+			$(this).removeClass('day_today');
+			$(this).addClass('day_select');
+			$(this).attr('d','2');
+		}else if($(this).attr('d')=='1'){
+			$(this).removeClass('day_option');
+			$(this).addClass('day_select');
+			$(this).attr('d','3');
+		}else if($(this).attr('d')=='2'){
+			$(this).addClass('day_today');
+			$(this).attr('d','0');
+		}else if($(this).attr('d')=='3'){
 			$(this).addClass('day_option');
 			$(this).attr('d','1');
 		}
